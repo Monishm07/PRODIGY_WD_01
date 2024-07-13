@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    overflow-x: hidden;
+    color: #333;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    z-index: 1000;
+}
+
+.nav-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    margin: 0 20px;
+    position: relative;
+}
+
+.nav-item a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-item a:hover {
+    color: #ff6347;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    transform: scale(1.1);
+}
+
+.nav-item a::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #ff6347;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.nav-item a:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.scrolled {
+    background-color: #555;
+    padding: 5px 0;
+}
+
+main {
+    margin-top: 60px; /* Ensure content is below the fixed navbar */
+}
+
+section {
+    padding: 0; /* Remove padding from sections */
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column; /* Ensure vertical alignment of h1 and p */
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+}
+
+#home, #about, #services, #contact {
+    color: white;
+    background-size: 200% 200%;
+    overflow: hidden;
+}
+
+#home {
+    background: linear-gradient(135deg, #ff6347, #ffa500);
+    animation: gradient-animation 10s ease infinite;
+}
+
+#about {
+    background: linear-gradient(135deg, #00c6ff, #0072ff);
+    animation: gradient-animation 10s ease infinite;
+}
+
+#services {
+    background: linear-gradient(135deg, #f7971e, #ffd200);
+    animation: gradient-animation 10s ease infinite;
+}
+
+#contact {
+    background: linear-gradient(135deg, #ff4e50, #f9d423);
+    animation: gradient-animation 10s ease infinite;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Centered and Stylish Text Styles */
+.content {
+    text-align: center;
+    max-width: 600px; /* Adjust max-width for better readability */
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 10px; /* Space between h1 and p */
+    animation: fadeInUp 1.5s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    font-weight: 600; /* Bolder font weight for emphasis */
+    letter-spacing: 2px;
+}
+
+p {
+    font-size: 1.25rem; /* Slightly smaller text for the paragraph */
+    margin: 0;
+    animation: fadeInUp 2s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+    font-weight: 300;
+    letter-spacing: 1px;
+    line-height: 1.6;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Footer text styling */
+.footer-text {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.875rem; /* Smaller text */
+    font-style: italic;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    z-index: 1000; /* Ensure it appears above other elements */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.footer-text:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #333;
+    cursor: pointer;
+}
